@@ -1,0 +1,68 @@
+body {
+    margin:0;
+}
+
+.zombie {
+    width: 200px;
+    height: 312px;
+    background: url("../images/walkingdead.png");
+    animation:
+            walk 0.3s 0s infinite steps(9),
+            move 5s 0s 1 linear;
+
+
+    position: absolute;
+    bottom: 100px;
+    left: calc(100% + 200px);
+    transform-origin: center bottom;
+}
+
+@keyframes move {
+    100% {
+        left: -200px;
+    }
+
+}
+
+@keyframes walk {
+100% {
+    background-position-x: -1800px ;
+}
+}
+.board {
+    cursor: none;
+    height:100vh;
+    min-height: 800px;
+    position: relative;
+    overflow: hidden;
+    background: rgb(0,0,0);
+    background-image: url(../images/board-bg.jpg);
+    background-size: cover;
+    background-position: center bottom;
+
+}
+
+.crosshair {
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    border: 20px solid rgba(255,255,255,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 9999;
+    border-radius: 50%;
+}
+
+.crosshair:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+border-radius: 50%;
+    background: red;
+    display: block;
+}
